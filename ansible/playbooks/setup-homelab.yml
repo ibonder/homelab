@@ -4,7 +4,7 @@
   become: true # TODO: remove this line
   roles:
     - role: geerlingguy.pip
-      tags: docker-pip
+      tags: docker_pip
       vars:
         pip_install_packages: ["docker"]
     - role: geerlingguy.docker
@@ -16,3 +16,7 @@
         tailscale_authkey: "{{ lookup('env', 'TAILSCALE_AUTHKEY') }}"
     - role: githubixx.lvm
       tags: lvm, never
+    - role: ryandaniels.create_users
+      tags: create_users
+    - role: init_setup
+      tags: init_setup

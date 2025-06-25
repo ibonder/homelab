@@ -8,6 +8,7 @@ exclude_paths:
   - roles/geerlingguy.docker
   - roles/artis3n.tailscale
   - roles/githubixx.lvm
+  - roles/ryandaniels.create_users
 
 mock_roles:
   # Ansible Galaxy installed roles
@@ -16,3 +17,4 @@ mock_roles:
   - geerlingguy.docker
   - artis3n.tailscale
   - githubixx.lvm
+  - ryandaniels.create_users

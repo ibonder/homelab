@@ -2,9 +2,10 @@
 all:
   vars:
     ansible_connection: ssh
-    ansible_user: ubuntu
+    ansible_user: ibondarev # change to ubuntu
     ansible_python_interpreter: /usr/bin/python3
 
 homelab:
-  vars:
-    ansible_ssh_host: homelab
+  hosts:
+    homeserver:
+      ansible_ssh_host: homeserver

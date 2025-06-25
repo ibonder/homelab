@@ -47,3 +47,16 @@ lvm_vgs:
               mode: '0755'
               owner: root
               group: root
+
+# Create users
+users:
+  - username: ibondarev
+    comment: Admin personal user
+    use_sudo: true
+    use_sudo_nopass: true
+    user_state: present
+  - username: ubuntu
+    comment: Ubuntu default user
+    use_sudo: true
+    use_sudo_nopass: true
+    user_state: present

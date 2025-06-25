@@ -15,6 +15,9 @@ roles:
   - name: githubixx.lvm
     src: https://github.com/githubixx/ansible-role-lvm.git
     version: 0.4.0
+  - name: ryandaniels.create_users
+    src: https://github.com/ryandaniels/ansible-role-create-users.git
+    version: 2.0.0
 
 collections:
   - name: community.docker

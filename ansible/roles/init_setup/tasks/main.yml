@@ -1,0 +1,8 @@
+---
+- name: Add tmpfs /tmp to /etc/fstab and mount
+  ansible.posix.mount:
+    path: /tmp
+    src: tmpfs
+    fstype: tmpfs
+    opts: defaults,noatime,nosuid,nodev,noexec,mode=1777,size=2G
+    state: mounted

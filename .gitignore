@@ -4,6 +4,7 @@ geerlingguy.pip
 geerlingguy.docker
 artis3n.tailscale
 githubixx.lvm
+ryandaniels.create_users
 
 # Service folders
 .vscode
