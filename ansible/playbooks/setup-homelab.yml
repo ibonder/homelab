@@ -1,0 +1,18 @@
+---
+- name: Setup homelab server
+  hosts: homelab
+  become: true # TODO: remove this line
+  roles:
+    - role: geerlingguy.pip
+      tags: docker-pip
+      vars:
+        pip_install_packages: ["docker"]
+    - role: geerlingguy.docker
+      tags: docker
+    - role: artis3n.tailscale
+      tags: tailscale
+      vars:
+        tailscale_up_skip: true # set via -e to false to run `tailscale up`
+        tailscale_authkey: "{{ lookup('env', 'TAILSCALE_AUTHKEY') }}"
+    - role: githubixx.lvm
+      tags: lvm, never
