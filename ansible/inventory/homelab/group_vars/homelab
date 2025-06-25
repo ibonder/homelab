@@ -1,0 +1,49 @@
+---
+# Harden Linux settings
+harden_linux_sysctl_settings_user:
+  "net.ipv4.ip_forward": 1
+  # "net.ipv6.conf.default.forwarding": 1
+  # "net.ipv6.conf.all.forwarding": 1
+harden_linux_ubuntu_cache_valid_time: 604800 # 7 days
+harden_linux_ufw_allow_networks:
+  # access from Docker network
+  - "172.16.0.0/12"
+
+# LVM settings
+lvm_vgs:
+  - vgname: ubuntu-vg
+    pvs: /dev/nvme0n1p3
+    state: present
+    lvm_lvs:
+      - lvname: ubuntu-lv
+        size: 100g
+        state: present
+        fs:
+          type: ext4
+          opts: -L system-root
+          state: present
+          mountpoint:
+            opts: relatime
+            state: mounted
+            src: LABEL=system-root
+            path:
+              name: /
+              mode: '0755'
+              owner: root
+              group: root
+      - lvname: logs-lv
+        size: 30g
+        state: present
+        fs:
+          type: ext4
+          opts: -L system-logs
+          state: present
+          mountpoint:
+            opts: relatime
+            state: mounted
+            src: LABEL=system-logs
+            path:
+              name: /var/log
+              mode: '0755'
+              owner: root
+              group: root
