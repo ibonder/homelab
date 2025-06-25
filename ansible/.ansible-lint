@@ -1,0 +1,18 @@
+---
+# .ansible-lint
+
+exclude_paths:
+  # Ansible Galaxy installed roles
+  - roles/githubixx.harden_linux
+  - roles/geerlingguy.pip
+  - roles/geerlingguy.docker
+  - roles/artis3n.tailscale
+  - roles/githubixx.lvm
+
+mock_roles:
+  # Ansible Galaxy installed roles
+  - githubixx.harden_linux
+  - geerlingguy.pip
+  - geerlingguy.docker
+  - artis3n.tailscale
+  - githubixx.lvm
