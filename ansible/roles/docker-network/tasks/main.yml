@@ -1,0 +1,28 @@
+---
+# TODO: check if it is needed
+- name: Check if Docker network exists
+  community.docker.docker_network_info:
+    name: "{{ docker_network__name }}"
+  register: docker_network_info
+  when: docker_network__name not in ['bridge', 'host']
+
+- name: Set allow_configure fact
+  ansible.builtin.set_fact:
+    _docker_network__allow_configure: >-
+      {{
+        (docker_network__name not in ['bridge', 'host']) and
+        (
+          docker_network__allow_override or
+          not docker_network_info.exists
+        )
+      }}
+
+- name: Create Docker network
+  community.docker.docker_network:
+    name: "{{ docker_network__name }}"
+    ipam_config:
+      - subnet: "{{ docker_network__cidr }}"
+    driver_options:
+      com.docker.network.bridge.name: "{{ docker_network__interface_name }}"
+    state: present
+  when: _docker_network__allow_configure

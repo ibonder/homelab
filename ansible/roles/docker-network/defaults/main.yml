@@ -1,0 +1,5 @@
+---
+docker_network__name: generic
+docker_network__cidr: 172.19.0.0/24
+docker_network__interface_name: "{{ docker_network__name }}"
+docker_network__allow_override: true
