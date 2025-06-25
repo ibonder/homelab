@@ -1,0 +1,21 @@
+---
+roles:
+  - name: githubixx.harden_linux
+    src: https://github.com/githubixx/ansible-role-harden-linux.git
+    version: v8.2.0
+  - name: geerlingguy.pip
+    src: https://github.com/geerlingguy/ansible-role-pip.git
+    version: 3.1.0
+  - name: geerlingguy.docker
+    src: https://github.com/geerlingguy/ansible-role-docker.git
+    version: 7.4.7
+  - name: artis3n.tailscale
+    src: https://github.com/artis3n/ansible-role-tailscale.git
+    version: v5.0.1
+  - name: githubixx.lvm
+    src: https://github.com/githubixx/ansible-role-lvm.git
+    version: 0.4.0
+
+collections:
+  - name: community.docker
+    version: 4.6.1

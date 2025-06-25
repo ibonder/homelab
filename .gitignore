@@ -1,0 +1,13 @@
+# Ansible Galaxy roles
+githubixx.harden_linux
+geerlingguy.pip
+geerlingguy.docker
+artis3n.tailscale
+githubixx.lvm
+
+# Service folders
+.vscode
+.ansible
+
+# Dump folder
+misc
